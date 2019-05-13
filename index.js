@@ -1,5 +1,5 @@
 const YoutubeDL = require('youtube-dl')
-const url = 'some-youtube-url'
+const url = ''
 const fileName = process.env.FILENAME || 'video-1.mp4'
 const fs = require('fs')
 

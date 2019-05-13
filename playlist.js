@@ -3,7 +3,7 @@ const fs   = require('fs');
 const ytdl = require('youtube-dl');
  
 function playlist(url) {
-  var video = ytdl(url, ['--playlist-start=1', '--playlist-end=10']);
+  var video = ytdl(url, ['--playlist-start=31', '--playlist-end=36']);
  
   video.on('error', function error(err) {
     console.log('error 2:', err);
@@ -13,7 +13,7 @@ function playlist(url) {
   video.on('info', function(info) {
     console.log('===== VIDEO INFO =====')
     console.log(info)
-    var output = path.join(__dirname + '/',  info.playlist_index + '.mp4');
+    var output = path.join(__dirname + '/',  info.playlist_index - 1 + '.mp4');
     video.pipe(fs.createWriteStream(output));
   });
  
@@ -33,4 +33,4 @@ function playlist(url) {
  
 }
 
-playlist('some youtube playlist url')
+playlist('')
